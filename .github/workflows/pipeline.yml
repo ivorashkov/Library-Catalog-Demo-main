@@ -35,9 +35,11 @@ jobs:
       run: npm run test
 
   deploy-backend:
+    
     needs: build-test
     runs-on: ubuntu-latest
     steps:
+      # can use get request with deploy hook from render instead of running the steps below
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
@@ -48,6 +50,7 @@ jobs:
     needs: deploy-backend
     runs-on: ubuntu-latest
     steps:
+      # can use get request with deploy hook from render instead of running the steps below
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
